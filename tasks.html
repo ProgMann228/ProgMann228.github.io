@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<script>
+			
+			function addTask()
+			{
+				var tasks_list = document.getElementById('current'); //создаем переменную и присваиваем ей элемент//
+				var new_task = document.createElement('li'); //создаем переменную и присваиваем ей элемент//
+				new_task.innerHTML = prompt("what task should i add?");	//помещаем текст в li//
+				console.log(new_task);	//выводим переменную//
+				tasks_list.appendChild(new_task); //добавляем в переменную дочерний элемент// 
+			}
+			
+			function delTask()
+			{
+				var tasks_list = document.getElementById('current'); //создаем переменную//
+				var task_number = prompt("Which number of task should i delete?");	//создаем переменную и помещаем в нее текст//
+				var taskDel = tasks_list.childNodes[task_number]; //находим переменную, которую нужно удалить// 
+				tasks_list.removeChild(taskDel); //удаляем ее//
+				var tasks_del_list = document.getElementById('done'); //создаем переменную//
+				tasks_del_list.appendChild(taskDel); //удаляем из переменной дочерний элемент// 
+			}
+		</script>
+	</head>
+	<body>
+		<input value="Add task" type="button" onclick="addTask();"> <!--добавляем кнопки-->
+		<input value="Delete task" type="button" onclick="delTask();">
+		<h1>Current tasks</h1> <!--добавляем надписи-->
+		<ol id="current"> <!--добавляем Id к кнопке-->
+		
+		</ol>
+		<h1>Completed tasks</h1>
+		<ol id="done">
+		
+		</ol>
+	</body>
+</html>
